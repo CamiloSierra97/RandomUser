@@ -1,6 +1,9 @@
 import React from 'react'
+import useUser from '../hooks/useUser'
 
-const RandomUser = ({ newUser, user }) => {
+const RandomUser = () => {
+
+    const {user, newUser} = useUser()
 
     return (
         <div className="random__user">

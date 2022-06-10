@@ -1,22 +1,11 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
 import './App.css'
 import RandomUser from './componets/RandomUser'
+import useUser from './hooks/useUser'
 
 
 function App() {
 
-  const [user, setUser] = useState()
-  const [changer, setChanger] = useState(user)
-  
-  let newUser = () => setChanger(user)
-
-  useEffect(() => {
-    axios.get('https://randomuser.me/api/')
-      .then(res => setUser(res.data.results[0]))
-      .catch(err => console.log(err))
-  }, [changer])
-
+  const {user, newUser} = useUser()
 
   return (
     <div className="App">
